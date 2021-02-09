@@ -1,10 +1,11 @@
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
-
 # mongoose-to-swagger 
 
 Conversion library for transforming [Mongoose](http://mongoosejs.com/) schema objects into [Swagger](http://swagger.io) schema definitions.
+
+Fork of the https://github.com/giddyinc/mongoose-to-swagger
+
+Added an option to omit "_id" mongoose field
+
 
 ## Installation
 
@@ -48,7 +49,11 @@ const options = {
     /**
      * Whitelist of custom fields.
      */
-    props: ['bar'], 
+    props: ['bar'],
+    /**
+     * Set to false, if you want to have "_id" field in your schema. Default to true.
+     */
+    omitId: false
 };
 
 const swaggerSchema = m2s(Cat, options);
